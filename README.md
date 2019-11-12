@@ -12,15 +12,15 @@ Surgeries are divided into three categories: Easy(requires Prosthetics research)
 
 ### Exact Changelog
 
-__Easy surgeries:__
-Research required: Prosthetics
-After research, an easy surgery will take 2,000 work and require a doctor with level 8 Medicine.
+__Easy surgeries:__  
+Research required: Prosthetics  
+After research, an easy surgery will take 2,000 work and require a doctor with level 8 Medicine.  
 
 These surgeries allow for the instant healing of any of the following injuries: Burn, Crush, Crack, Cut, Surgical cut, Scratch, Bite, Stab, Gunshot, Shredded, Bruise and/or Frostbite, but, at the cost of 3 units of either regular or glitterworld medicine and 3 units of synthread, you might want to save them to cure any residual scarring instead.[spoiler](from what I can tell, the game treats a scar the same as the original wound; I have not been able to find a way to create a treatment for only a scar)[/spoiler] Surgeries to replace missing noses also fall under this category, requiring 3 units of either regular or glitterworld medicine and 3 units of synthread.
 
-__Hard surgeries:__
-Research required: Bionics
-After research, a hard surgery will take 4500 work and require a doctor with level 15 Medicine.
+__Hard surgeries:__  
+Research required: Bionics  
+After research, a hard surgery will take 4500 work and require a doctor with level 15 Medicine.  
 
 Cure muscle parasites: 7 glitterworld medicine, 5 Penoxycyline
 Cure gut worms: 7 glitterworld medicine, 5 Penoxycyline
@@ -30,9 +30,9 @@ Cure the flu: 8 glitterworld medicine, 12 Penoxycyline
 Cure malaria: 9 glitterworld medicine, 15 Penoxycyline
 Cure the plague: 10 glitterworld medicine, 15 Penoxycyline
 
-__Very hard surgeries:__
-Research required: MSE_ArchotechSurgery
-After research, a very hard surgery will take 6000 work and require a doctor with a level 18 Medicine AND a level 6 Intellectual skill.
+__Very hard surgeries:__  
+Research required: MSE_ArchotechSurgery  
+After research, a very hard surgery will take 6000 work and require a doctor with a level 18 Medicine AND a level 6 Intellectual skill.  
 
 Cure alzheimers: 8 glitterworld medicine, 2 advanced components
 Cure dementia: 10 glitterworld medicine, 3 advanced components, 1 psychic soothe pulser
