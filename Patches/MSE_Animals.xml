@@ -1,0 +1,36 @@
+<Patch>
+    <!-- Add relevant recipes to all Animals -->
+    <Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[@Name="AnimalThingBase"]/recipes</xpath>
+                <value>
+                    <li>CureInjuryBurn</li>
+                    <li>CureInjuryCrush</li>
+                    <li>CureInjuryCrack</li>
+                    <li>CureInjuryCut</li>
+                    <li>CureInjurySurgicalCut</li>
+                    <li>CureInjuryScratch</li>
+                    <li>CureInjuryBite</li>
+                    <li>CureInjuryStab</li>
+                    <li>CureInjuryGunshot</li>
+                    <li>CureInjuryShredded</li>
+                    <li>CureInjuryBruise</li>
+                    <li>CureInjuryFrostbite</li>
+                    <li>RepairCosmeticNose</li>
+
+                    <li>CureWoundInfections</li>
+                    <li>CureInfectionFlu</li>
+                    <li>CureInfectionPlague</li>
+                    <li>CureInfectionMalaria</li>
+
+                    <li>CureChronicDementia</li>
+                    <li>CureChronicAlzheimers</li>
+                    <li>CureChronicBadBack</li>
+                    <li>CureChronicFrail</li>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+</Patch>

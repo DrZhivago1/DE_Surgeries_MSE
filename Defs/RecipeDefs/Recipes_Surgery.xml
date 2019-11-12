@@ -1,0 +1,1560 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Define which races are available for the added surgeries -->
+  <RecipeDef Name="DESurgeries" ParentName="SurgeryFlesh" Abstract="True">
+    <recipeUsers>
+      <li>Human</li>
+      <!-- Insert modded races here via xpath. Do not forget the li tags -->
+    </recipeUsers>
+  </RecipeDef>
+
+
+  <!-- Define 4 different difficulties -->
+
+  <RecipeDef Name="SurgeryEasy" ParentName="DESurgeries" Abstract="True">
+    <!-- Easy recipe the skill of the colonist and quality/cleanliness of the room should not matters that much -->
+    <!-- Intended for minor, superficial injuries such as scarring -->
+    <surgerySuccessChanceFactor>0.95</surgerySuccessChanceFactor>
+    <deathOnFailedSurgeryChance>0.01</deathOnFailedSurgeryChance>
+    <workAmount>2000</workAmount>
+    <researchPrerequisite>Prosthetics</researchPrerequisite>
+    <workSkillLearnFactor>4</workSkillLearnFactor>
+    <skillRequirements>
+      <Medicine>8</Medicine>
+    </skillRequirements>
+  </RecipeDef>
+
+  <!--<RecipeDef Name="SurgeryNormal" ParentName="DESurgeries" Abstract="True">
+    <! The skill of the colonist and quality/cleanliness of the room should matters a bit >
+    <! Intended for internal injuries, such as broken bones >
+    <surgerySuccessChanceFactor>0.85</surgerySuccessChanceFactor>
+    <deathOnFailedSurgeryChance>0.01</deathOnFailedSurgeryChance>
+    <workAmount>2500</workAmount>
+    <researchPrerequisite>NormalSurgery</researchPrerequisite>
+    <workSkillLearnFactor>4</workSkillLearnFactor>
+    <skillRequirements>
+      <Medicine>12</Medicine>
+    </skillRequirements>
+  </RecipeDef>-->
+
+  <RecipeDef Name="SurgeryHard" ParentName="DESurgeries" Abstract="True">
+    <!-- The skill of the colonist and quality/cleanliness of the room should matters -->
+    <!-- Intended for severe injuries that would require a functioning, prosthetic part, such as missing fingers and toes -->
+    <surgerySuccessChanceFactor>0.75</surgerySuccessChanceFactor>
+    <deathOnFailedSurgeryChance>0.05</deathOnFailedSurgeryChance>
+    <workAmount>3000</workAmount>
+    <researchPrerequisite>Bionics</researchPrerequisite>
+    <workSkillLearnFactor>4</workSkillLearnFactor>
+    <skillRequirements>
+      <Medicine>15</Medicine>
+    </skillRequirements>
+  </RecipeDef>
+
+  <RecipeDef Name="SurgeryVeryHard" ParentName="DESurgeries" Abstract="True">
+    <!-- The skill of the colonist and quality/cleanliness of the room should matters a lot -->
+    <!-- Intended to remove the most serious ailments, such as hediffs applied upon a pawn's birthday -->
+    <surgerySuccessChanceFactor>0.7</surgerySuccessChanceFactor>
+    <deathOnFailedSurgeryChance>0.1</deathOnFailedSurgeryChance>
+    <workAmount>5250</workAmount>
+    <researchPrerequisite>MSE_ArchotechSurgery</researchPrerequisite>
+    <workSkillLearnFactor>4</workSkillLearnFactor>
+    <skillRequirements>
+      <Medicine>18</Medicine>
+      <Intellectual>6</Intellectual>
+    </skillRequirements>
+  </RecipeDef>
+
+  <!-- Easy Surgery -->
+
+  <!-- Injury: Burn -->
+  <RecipeDef ParentName="SurgeryEasy">
+    <defName>CureInjuryBurn</defName>
+    <label>cure burn</label>
+    <description>Remove a burn; requires regular medicine or better as well as human leather from a willing donor.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s burn.</successfullyRemovedHediffMessage>
+    <jobString>Curing burn.</jobString>
+    <removesHediff>Burn</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Synthread</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+        <li>Synthread</li>
+      </thingDefs>
+      <disallowedThingDefs>
+        <li>MedicineHerbal</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Injury: Crush -->
+  <RecipeDef ParentName="SurgeryEasy">
+    <defName>CureInjuryCrush</defName>
+    <label>cure crush</label>
+    <description>Repair a crushed body part; requires regular medicine or better.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s crush.</successfullyRemovedHediffMessage>
+    <jobString>Curing crush.</jobString>
+    <removesHediff>Crush</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Synthread</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+        <li>Synthread</li>
+      </thingDefs>
+      <disallowedThingDefs>
+        <li>MedicineHerbal</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Injury: Crack -->
+  <RecipeDef ParentName="SurgeryEasy">
+    <defName>CureInjuryCrack</defName>
+    <label>cure crack </label>
+    <description>Cure a crack; requires regular medicine or better.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s crack.</successfullyRemovedHediffMessage>
+    <jobString>Curing crack.</jobString>
+    <removesHediff>Crack</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Synthread</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+        <li>Synthread</li>
+      </thingDefs>
+      <disallowedThingDefs>
+        <li>MedicineHerbal</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Injury: Cut -->
+  <RecipeDef ParentName="SurgeryEasy">
+    <defName>CureInjuryCut</defName>
+    <label>cure cut </label>
+    <description>Cure a cut; requires regular medicine or better.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s cut.</successfullyRemovedHediffMessage>
+    <jobString>Curing cut.</jobString>
+    <removesHediff>Cut</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Synthread</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+        <li>Synthread</li>
+      </thingDefs>
+      <disallowedThingDefs>
+        <li>MedicineHerbal</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Injury: SurgicalCut -->
+  <RecipeDef ParentName="SurgeryEasy">
+    <defName>CureInjurySurgicalCut</defName>
+    <label>cure surgical cut </label>
+    <description>Cure a surgical cut; requires regular medicine or better.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s surgical cut.</successfullyRemovedHediffMessage>
+    <jobString>Curing surgical cut.</jobString>
+    <removesHediff>SurgicalCut</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Synthread</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+        <li>Synthread</li>
+      </thingDefs>
+      <disallowedThingDefs>
+        <li>MedicineHerbal</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Injury: Scratch -->
+  <RecipeDef ParentName="SurgeryEasy">
+    <defName>CureInjuryScratch</defName>
+    <label>cure scratch </label>
+    <description>Cure a scratch; requires regular medicine or better.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s scratch.</successfullyRemovedHediffMessage>
+    <jobString>Curing scratch.</jobString>
+    <removesHediff>Scratch</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Synthread</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+        <li>Synthread</li>
+      </thingDefs>
+      <disallowedThingDefs>
+        <li>MedicineHerbal</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Injury: Bite -->
+  <RecipeDef ParentName="SurgeryEasy">
+    <defName>CureInjuryBite</defName>
+    <label>cure bite </label>
+    <description>Cure a bite; requires regular medicine or better.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s bite.</successfullyRemovedHediffMessage>
+    <jobString>Curing bite.</jobString>
+    <removesHediff>Bite</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Synthread</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+        <li>Synthread</li>
+      </thingDefs>
+      <disallowedThingDefs>
+        <li>MedicineHerbal</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Injury: Stab -->
+  <RecipeDef ParentName="SurgeryEasy">
+    <defName>CureInjuryStab</defName>
+    <label>cure stab </label>
+    <description>Cure a stab; requires regular medicine or better.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s stab.</successfullyRemovedHediffMessage>
+    <jobString>Curing stab.</jobString>
+    <removesHediff>Stab</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Synthread</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+        <li>Synthread</li>
+      </thingDefs>
+      <disallowedThingDefs>
+        <li>MedicineHerbal</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Injury: Gunshot -->
+  <RecipeDef ParentName="SurgeryEasy">
+    <defName>CureInjuryGunshot</defName>
+    <label>cure gunshot </label>
+    <description>Cure a gunshot; requires regular medicine or better.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s Gunshot.</successfullyRemovedHediffMessage>
+    <jobString>Curing gunshot.</jobString>
+    <removesHediff>Gunshot</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Synthread</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+        <li>Synthread</li>
+      </thingDefs>
+      <disallowedThingDefs>
+        <li>MedicineHerbal</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Injury: Shredded -->
+  <RecipeDef ParentName="SurgeryEasy">
+    <defName>CureInjuryShredded</defName>
+    <label>cure shredded </label>
+    <description>Repair a shredded body part; requires regular medicine or better.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s shredding.</successfullyRemovedHediffMessage>
+    <jobString>Curing shredded.</jobString>
+    <removesHediff>Shredded</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Synthread</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+        <li>Synthread</li>
+      </thingDefs>
+      <disallowedThingDefs>
+        <li>MedicineHerbal</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Injury: Bruise -->
+  <RecipeDef ParentName="SurgeryEasy">
+    <defName>CureInjuryBruise</defName>
+    <label>cure bruise </label>
+    <description>Cure a bruise; requires regular medicine or better.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s bruise.</successfullyRemovedHediffMessage>
+    <jobString>Curing bruise.</jobString>
+    <removesHediff>Bruise</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <disallowedThingDefs>
+        <li>MedicineHerbal</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Injury: Frostbite -->
+  <RecipeDef ParentName="SurgeryEasy">
+    <defName>CureInjuryFrostbite</defName>
+    <label>cure frostbite </label>
+    <description>Cure a frostbitten extremity; requires regular medicine or better.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s frostbite.</successfullyRemovedHediffMessage>
+    <jobString>Curing frostbite.</jobString>
+    <removesHediff>Frostbite</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Synthread</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+        <li>Synthread</li>
+      </thingDefs>
+      <disallowedThingDefs>
+        <li>MedicineHerbal</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Cosmetic: Ear 
+  <RecipeDef ParentName="SurgeryEasy">
+    <defName>RepairCosmeticEar</defName>
+    <label>repair ear </label>
+    <description>Replace an ear; requires regular medicine and some human leather.</description>
+    <workerClass>Recipe_InstallNaturalBodyPart</workerClass>
+    <jobString>Repairing ear</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Ear</li>
+    </appliedOnFixedBodyParts>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Synthread</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+        <li>Synthread</li>
+      </thingDefs>
+      <disallowedThingDefs>
+        <li>MedicineHerbal</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>-->
+
+  <!-- Cosmetic: Nose -->
+  <RecipeDef ParentName="SurgeryEasy">
+    <defName>RepairCosmeticNose</defName>
+    <label>repair nose </label>
+    <description>Replace a nose; requires regular medicine and human leather.</description>
+    <workerClass>Recipe_InstallNaturalBodyPart</workerClass>
+    <jobString>Repairing nose</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Nose</li>
+    </appliedOnFixedBodyParts>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Synthread</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+        <li>Synthread</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Normal Surgery >
+
+  <! Bone/limb: Mandible >
+  <RecipeDef ParentName="SurgeryNormal">
+    <defName>RepairBonesMandible</defName>
+    <label>repair mandible </label>
+    <description>Repair a mandible; requires glitterworld medicine, plasteel, and components.</description>
+    <workerClass>Recipe_InstallNaturalBodyPart</workerClass>
+    <jobString>Repairing mandible</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Jaw</li>
+    </appliedOnFixedBodyParts>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>30</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Plasteel</li>
+        <li>MedicineUltratech</li>
+        <li>ComponentIndustrial</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <! Bone/limb: clavicle >
+  <RecipeDef ParentName="SurgeryNormal">
+    <defName>RepairBonesClavicle</defName>
+    <label>repair clavicle </label>
+    <description>Repair a clavicle; requires glitterworld medicine and plasteel.</description>
+    <workerClass>Recipe_InstallNaturalBodyPart</workerClass>
+    <jobString>Repairing clavicle</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Clavicle</li>
+    </appliedOnFixedBodyParts>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>25</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Plasteel</li>
+        <li>MedicineUltratech</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <! Bones: ribcage >
+  <RecipeDef ParentName="SurgeryNormal">
+    <defName>RepairBonesRibCage</defName>
+    <label>repair ribcage</label>
+    <description>Repair a rib; requires glitterworld medicine and plasteel.</description>
+    <workerClass>Recipe_InstallNaturalBodyPart</workerClass>
+    <jobString>Repairing ribcage</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Ribcage</li>
+    </appliedOnFixedBodyParts>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>40</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Plasteel</li>
+        <li>MedicineUltratech</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <! Bone/limb: Sternum >
+  <RecipeDef ParentName="SurgeryNormal">
+    <defName>RepairBonesSternum</defName>
+    <label>repair sternum </label>
+    <description>Repair a sternum; requires glitterworld medicine and plasteel.</description>
+    <workerClass>Recipe_InstallNaturalBodyPart</workerClass>
+    <jobString>Repairing Sternum</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Sternum</li>
+    </appliedOnFixedBodyParts>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>40</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Plasteel</li>
+        <li>MedicineUltratech</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <! Bone/limb: Radius >
+  <RecipeDef ParentName="SurgeryNormal">
+    <defName>RepairBonesRadius</defName>
+    <label>repair radius </label>
+    <description>Repair a radius; requires glitterworld medicine, plasteel and components.</description>
+    <workerClass>Recipe_InstallNaturalBodyPart</workerClass>
+    <jobString>Repairing radius</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Radius</li>
+    </appliedOnFixedBodyParts>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>40</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MedicineUltratech</li>
+        <li>Plasteel</li>
+        <li>ComponentIndustrial</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <! Bone/limb: Humerus >
+  <RecipeDef ParentName="SurgeryNormal">
+    <defName>RepairBonesHumerus</defName>
+    <label>repair humerus </label>
+    <description>Repair a humerus; requires glitterworld medicine, plasteel, and components.</description>
+    <workerClass>Recipe_InstallNaturalBodyPart</workerClass>
+    <jobString>Repairing humerus</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Humerus</li>
+    </appliedOnFixedBodyParts>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>45</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MedicineUltratech</li>
+        <li>Plasteel</li>
+        <li>ComponentIndustrial</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <! Bone/limb: Femur >
+  <RecipeDef ParentName="SurgeryNormal">
+    <defName>RepairBonesFemur</defName>
+    <label>repair femur </label>
+    <description>Repair a femur; requires glitterworld medicine, plasteel, and components.</description>
+    <workerClass>Recipe_InstallNaturalBodyPart</workerClass>
+    <jobString>Repairing femur</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Femur</li>
+    </appliedOnFixedBodyParts>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>50</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MedicineUltratech</li>
+        <li>Plasteel</li>
+        <li>ComponentIndustrial</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <! Bone/limb: Tibia >
+  <RecipeDef ParentName="SurgeryNormal">
+    <defName>RepairBonesTibia</defName>
+    <label>repair tibia </label>
+    <description>Repair a tibia; requires glitterworld medicine, plasteel, and components.</description>
+    <workerClass>Recipe_InstallNaturalBodyPart</workerClass>
+    <jobString>Repairing tibia</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Tibia</li>
+    </appliedOnFixedBodyParts>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>45</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MedicineUltratech</li>
+        <li>Plasteel</li>
+        <li>ComponentIndustrial</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <! Bones: Pelvis >
+  <RecipeDef ParentName="SurgeryNormal">
+    <defName>RepairBonesPelvis</defName>
+    <label>repair Pelvis </label>
+    <description>Repair a pelvis; requires glitterworld medicine, plasteel, and components.</description>
+    <workerClass>Recipe_InstallNaturalBodyPart</workerClass>
+    <jobString>Repairing Pelvis</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Pelvis</li>
+    </appliedOnFixedBodyParts>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>40</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MedicineUltratech</li>
+        <li>Plasteel</li>
+        <li>ComponentIndustrial</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <! Hard Surgery >
+
+  <! Bone/limb finger >
+  <RecipeDef ParentName="SurgeryHard">
+    <defName>RepairFinger</defName>
+    <label>repair finger </label>
+    <description>Replace a finger; requires glitterworld medicine, plasteel, human leather, and some advanced components.</description>
+    <workerClass>Recipe_InstallNaturalBodyPart</workerClass>
+    <jobString>Repairing finger</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Finger</li>
+    </appliedOnFixedBodyParts>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Synthread</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>20</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentSpacer</li>
+          </thingDefs>
+        </filter>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MedicineUltratech</li>
+        <li>Synthread</li>
+        <li>Plasteel</li>
+        <li>ComponentSpacer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <! Bone/limb toe >
+  <RecipeDef ParentName="SurgeryHard">
+    <defName>RepairToe</defName>
+    <label>repair toe</label>
+    <description>Repair toe; requires glitterworld medicine, plasteel, and some components.</description>
+    <workerClass>Recipe_InstallNaturalBodyPart</workerClass>
+    <jobString>Repairing toe</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Toe</li>
+    </appliedOnFixedBodyParts>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Synthread</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>20</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentSpacer</li>
+          </thingDefs>
+        </filter>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MedicineUltratech</li>
+        <li>Synthread</li>
+        <li>Plasteel</li>
+        <li>ComponentSpacer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>-->
+
+  <!-- Cure Muscle Parasites -->
+  <RecipeDef ParentName="SurgeryHard">
+    <defName>CureMuscleParasites</defName>
+    <label>cure muscle parasites </label>
+    <description>Cure muscle parasites in a single treatment with a large amount of glitterworld medicine and antibiotics.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s muscle parasites.</successfullyRemovedHediffMessage>
+    <jobString>Curing muscle parasites.</jobString>
+    <removesHediff>MuscleParasites</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>7</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Penoxycyline</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MedicineUltratech</li>
+        <li>Penoxycyline</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Cure Gut Worms -->
+  <RecipeDef ParentName="SurgeryHard">
+    <defName>CureGutWorms</defName>
+    <label>cure gut worms </label>
+    <description>Cure gut worms in a single treatment with a large amount of glitterworld medicine and antibiotics.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s gut worms.</successfullyRemovedHediffMessage>
+    <jobString>Curing gut worms.</jobString>
+    <removesHediff>GutWorms</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>7</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Penoxycyline</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MedicineUltratech</li>
+        <li>Penoxycyline</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Cure: Wound infection -->
+  <RecipeDef ParentName="SurgeryHard">
+    <defName>CureWoundInfections</defName>
+    <label>Cure wound infection</label>
+    <description>Cure an infection with a large amount of glitterworld medicine and antibiotics.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s wound infections.</successfullyRemovedHediffMessage>
+    <jobString>Curing wound infections.</jobString>
+    <removesHediff>WoundInfection</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>7</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Penoxycyline</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MedicineUltratech</li>
+        <li>Penoxycyline</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Cure: Flu -->
+  <RecipeDef ParentName="SurgeryHard">
+    <defName>CureInfectionFlu</defName>
+    <label>Cure flu</label>
+    <description>Finally, a cure for the flu! And all you need is some Penoxycyline and medicine off of some of the most advanced glitterworlds in the universe; who knew?</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s flu.</successfullyRemovedHediffMessage>
+    <jobString>Curing flu.</jobString>
+    <!-- targetsBodyPart : Whether the object is a body part - if it is false it is not a physical part (in case of illness) -->
+    <targetsBodyPart>true</targetsBodyPart>
+    <!-- anesthetize : Whether anesthesia continues after surgery -->
+    <anesthetize>true</anesthetize>
+    <!-- dontShowIfAnyIngredientMissing : Hide when there is no material necessary for surgery -->
+    <dontShowIfAnyIngredientMissing>False</dontShowIfAnyIngredientMissing>
+    <removesHediff>Flu</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>8</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Penoxycyline</li>
+          </thingDefs>
+        </filter>
+        <count>12</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MedicineUltratech</li>
+        <li>Penoxycyline</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Cure: Plague -->
+  <RecipeDef ParentName="SurgeryHard">
+    <defName>CureInfectionPlague</defName>
+    <label>Cure plague</label>
+    <description>Cure the plague with antibiotics and glitterworld medicine.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s plague.</successfullyRemovedHediffMessage>
+    <jobString>Curing plague.</jobString>
+    <targetsBodyPart>true</targetsBodyPart>
+    <anesthetize>true</anesthetize>
+    <dontShowIfAnyIngredientMissing>False</dontShowIfAnyIngredientMissing>
+    <removesHediff>Plague</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Penoxycyline</li>
+          </thingDefs>
+        </filter>
+        <count>15</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MedicineUltratech</li>
+        <li>Penoxycyline</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Cure: Malaria -->
+  <RecipeDef ParentName="SurgeryHard">
+    <defName>CureInfectionMalaria</defName>
+    <label>Cure malaria</label>
+    <description>Cure malaria with antibiotics and glitterworld medicine.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s malaria.</successfullyRemovedHediffMessage>
+    <jobString>Curing malaria.</jobString>
+    <targetsBodyPart>true</targetsBodyPart>
+    <anesthetize>true</anesthetize>
+    <dontShowIfAnyIngredientMissing>False</dontShowIfAnyIngredientMissing>
+    <removesHediff>Malaria</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>9</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Penoxycyline</li>
+          </thingDefs>
+        </filter>
+        <count>15</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MedicineUltratech</li>
+        <li>Penoxycyline</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Cure: Sleeping Sickness -->
+  <RecipeDef ParentName="SurgeryHard">
+    <defName>CureInfectionSleepingSickness</defName>
+    <label>Cure sleeping sickness</label>
+    <description>Cure sleeping sickness with antibiotics and glitterworld medicine.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s sleeping sickness.</successfullyRemovedHediffMessage>
+    <jobString>Curing sleeping sickness.</jobString>
+    <targetsBodyPart>true</targetsBodyPart>
+    <anesthetize>true</anesthetize>
+    <dontShowIfAnyIngredientMissing>False</dontShowIfAnyIngredientMissing>
+    <removesHediff>SleepingSickness</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>8</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Penoxycyline</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MedicineUltratech</li>
+        <li>Penoxycyline</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Very Hard Surgery -->
+
+  <!-- Chronic: Dementia -->
+  <RecipeDef ParentName="SurgeryVeryHard">
+    <defName>CureChronicDementia</defName>
+    <label>cure dementia </label>
+    <description>Cure a pawn's dementia; this is an incredibly complicated operation that requires advanced components, technology ripped out of a psychic soothe pulser, and an extortionate amount of glitterworld medicine.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s dementia.</successfullyRemovedHediffMessage>
+    <jobString>Curing dementia.</jobString>
+    <removesHediff>Dementia</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentSpacer</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>PsychicSoothePulser</li>
+          </thingDefs>
+        </filter>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MedicineUltratech</li>
+        <li>ComponentSpacer</li>
+        <li>PsychicSoothePulser</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Chronic: Alzheimers -->
+  <RecipeDef ParentName="SurgeryVeryHard">
+    <defName>CureChronicAlzheimers</defName>
+    <label>cure alzheimers </label>
+    <description>Cure a pawn's alzheimers; this is a complicated surgery that requires advanced components and an extortionate amount of glitterworld medicine.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s alzheimer's.</successfullyRemovedHediffMessage>
+    <jobString>Curing alzheimer's.</jobString>
+    <removesHediff>Alzheimers</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>8</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentSpacer</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MedicineUltratech</li>
+        <li>ComponentSpacer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Chronic: Badback -->
+  <RecipeDef ParentName="SurgeryVeryHard">
+    <defName>CureChronicBadBack</defName>
+    <label>cure/repair bad back</label>
+    <description>Cure a pawn's bad back; this is a complicated reconstructive surgery that requires plasteel, hyperweave, advanced components, and an extortionate amount of glitterworld medicine.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s bad back.</successfullyRemovedHediffMessage>
+    <jobString>Curing bad back.</jobString>
+    <removesHediff>BadBack</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>75</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Hyperweave</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentSpacer</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>12</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Plasteel</li>
+        <li>Hyperweave</li>
+        <li>MedicineUltratech</li>
+        <li>ComponentSpacer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- Chronic: Frail -->
+  <RecipeDef ParentName="SurgeryVeryHard">
+    <defName>CureChronicFrail</defName>
+    <label>cure frail</label>
+    <description>Cure a pawn's frailty; this is an incredibly complicated and invasive full-body reconstruction that requires a large number of valuable materials: plasteel, advanced components, gold, hyperweave, and glitterworld medicine. Hopefully your pawn appreciates the amount of work going into this operation and fully understands the risks!</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s frailty.</successfullyRemovedHediffMessage>
+    <jobString>Curing frail.</jobString>
+    <removesHediff>Frail</removesHediff>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>15</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>150</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Hyperweave</li>
+          </thingDefs>
+        </filter>
+        <count>20</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Gold</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentSpacer</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MedicineUltratech</li>
+        <li>Plasteel</li>
+        <li>Hyperweave</li>
+        <li>Gold</li>
+        <li>ComponentSpacer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+</Defs>

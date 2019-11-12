@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- Flu body patch -->
+	<Operation Class="PatchOperationInsert">
+		<xpath>Defs/IncidentDef[defName = "Disease_Flu"]/diseaseIncident</xpath>
+		<value>
+			<diseasePartsToAffect><li>Torso</li></diseasePartsToAffect>
+		</value>
+	</Operation>
+
+	<!-- Plague body patch -->
+	<Operation Class="PatchOperationInsert">
+		<xpath>Defs/IncidentDef[defName = "Disease_Plague"]/diseaseIncident</xpath>
+		<value>
+			<diseasePartsToAffect><li>Torso</li></diseasePartsToAffect>
+		</value>
+	</Operation>
+
+	<!-- Malaria body patch -->
+	<Operation Class="PatchOperationInsert">
+		<xpath>Defs/IncidentDef[defName = "Disease_Malaria"]/diseaseIncident</xpath>
+		<value>
+			<diseasePartsToAffect><li>Torso</li></diseasePartsToAffect>
+		</value>
+	</Operation>
+
+	<!-- Sleeping Sickness body patch -->
+	<Operation Class="PatchOperationInsert">
+		<xpath>Defs/IncidentDef[defName = "Disease_SleepingSickness"]/diseaseIncident</xpath>
+		<value>
+			<diseasePartsToAffect><li>Torso</li></diseasePartsToAffect>
+		</value>
+	</Operation>
+
+	<!-- Muscle Parasites body patch -->
+	<Operation Class="PatchOperationInsert">
+		<xpath>Defs/IncidentDef[defName = "Disease_MuscleParasites"]/diseaseIncident</xpath>
+		<value>
+			<diseasePartsToAffect><li>Torso</li></diseasePartsToAffect>
+		</value>
+	</Operation>
+
+	<!-- Animal Flu body patch -->
+	<Operation Class="PatchOperationInsert">
+		<xpath>Defs/IncidentDef[defName = "Disease_AnimalFlu"]/diseaseIncident</xpath>
+		<value>
+			<diseasePartsToAffect><li>Body</li></diseasePartsToAffect>
+		</value>
+	</Operation>
+
+	<!-- Animal Plague body patch -->
+	<Operation Class="PatchOperationInsert">
+		<xpath>Defs/IncidentDef[defName = "Disease_AnimalPlague"]/diseaseIncident</xpath>
+		<value>
+			<diseasePartsToAffect><li>Body</li></diseasePartsToAffect>
+		</value>
+	</Operation>
+
+</Patch>
