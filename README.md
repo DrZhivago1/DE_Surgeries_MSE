@@ -1,6 +1,6 @@
 # [1.0] DE Surgeries for MSE only
 
-Originally by DarknessEyes; respectfully edited by Nerdygamer1, and further edited for MSE by Dr_Zhivago.
+Originally by DarknessEyes; respectfully edited by Nerdygamer1, and further edited for [MSE](https://steamcommunity.com/sharedfiles/filedetails/?id=1749027802) by Dr_Zhivago.
 Further credit goes to: Proxyer, who updated the mod through B19 and 1.0, KapTaiN_KaVerN, who updated the mod through A14 to A18, and to the various translators:
 
 - RU : by Man232 and Desert Rain
