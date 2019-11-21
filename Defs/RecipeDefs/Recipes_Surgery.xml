@@ -71,7 +71,7 @@
   <RecipeDef ParentName="SurgeryEasy">
     <defName>CureInjuryBurn</defName>
     <label>cure burn</label>
-    <description>Remove a burn; requires regular medicine or better as well as human leather from a willing donor.</description>
+    <description>Remove a burn; requires regular medicine or better as well as synthread.</description>
     <workerClass>Recipe_RemoveHediff</workerClass>
     <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s burn.</successfullyRemovedHediffMessage>
     <jobString>Curing burn.</jobString>
@@ -111,7 +111,7 @@
   <RecipeDef ParentName="SurgeryEasy">
     <defName>CureInjuryCrush</defName>
     <label>cure crush</label>
-    <description>Repair a crushed body part; requires regular medicine or better.</description>
+    <description>Repair a crushed body part; requires regular medicine or better and synthread.</description>
     <workerClass>Recipe_RemoveHediff</workerClass>
     <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s crush.</successfullyRemovedHediffMessage>
     <jobString>Curing crush.</jobString>
@@ -151,7 +151,7 @@
   <RecipeDef ParentName="SurgeryEasy">
     <defName>CureInjuryCrack</defName>
     <label>cure crack </label>
-    <description>Cure a crack; requires regular medicine or better.</description>
+    <description>Cure a crack; requires regular medicine or better and synthread.</description>
     <workerClass>Recipe_RemoveHediff</workerClass>
     <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s crack.</successfullyRemovedHediffMessage>
     <jobString>Curing crack.</jobString>
@@ -191,7 +191,7 @@
   <RecipeDef ParentName="SurgeryEasy">
     <defName>CureInjuryCut</defName>
     <label>cure cut </label>
-    <description>Cure a cut; requires regular medicine or better.</description>
+    <description>Cure a cut; requires regular medicine or better and synthread.</description>
     <workerClass>Recipe_RemoveHediff</workerClass>
     <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s cut.</successfullyRemovedHediffMessage>
     <jobString>Curing cut.</jobString>
@@ -231,7 +231,7 @@
   <RecipeDef ParentName="SurgeryEasy">
     <defName>CureInjurySurgicalCut</defName>
     <label>cure surgical cut </label>
-    <description>Cure a surgical cut; requires regular medicine or better.</description>
+    <description>Cure a surgical cut; requires regular medicine or better and synthread.</description>
     <workerClass>Recipe_RemoveHediff</workerClass>
     <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s surgical cut.</successfullyRemovedHediffMessage>
     <jobString>Curing surgical cut.</jobString>
@@ -271,7 +271,7 @@
   <RecipeDef ParentName="SurgeryEasy">
     <defName>CureInjuryScratch</defName>
     <label>cure scratch </label>
-    <description>Cure a scratch; requires regular medicine or better.</description>
+    <description>Cure a scratch; requires regular medicine or better and synthread.</description>
     <workerClass>Recipe_RemoveHediff</workerClass>
     <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s scratch.</successfullyRemovedHediffMessage>
     <jobString>Curing scratch.</jobString>
@@ -311,7 +311,7 @@
   <RecipeDef ParentName="SurgeryEasy">
     <defName>CureInjuryBite</defName>
     <label>cure bite </label>
-    <description>Cure a bite; requires regular medicine or better.</description>
+    <description>Cure a bite; requires regular medicine or better and synthread.</description>
     <workerClass>Recipe_RemoveHediff</workerClass>
     <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s bite.</successfullyRemovedHediffMessage>
     <jobString>Curing bite.</jobString>
@@ -351,7 +351,7 @@
   <RecipeDef ParentName="SurgeryEasy">
     <defName>CureInjuryStab</defName>
     <label>cure stab </label>
-    <description>Cure a stab; requires regular medicine or better.</description>
+    <description>Cure a stab; requires regular medicine or better and synthread.</description>
     <workerClass>Recipe_RemoveHediff</workerClass>
     <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s stab.</successfullyRemovedHediffMessage>
     <jobString>Curing stab.</jobString>
@@ -391,7 +391,7 @@
   <RecipeDef ParentName="SurgeryEasy">
     <defName>CureInjuryGunshot</defName>
     <label>cure gunshot </label>
-    <description>Cure a gunshot; requires regular medicine or better.</description>
+    <description>Cure a gunshot; requires regular medicine or better and synthread.</description>
     <workerClass>Recipe_RemoveHediff</workerClass>
     <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s Gunshot.</successfullyRemovedHediffMessage>
     <jobString>Curing gunshot.</jobString>
@@ -431,7 +431,7 @@
   <RecipeDef ParentName="SurgeryEasy">
     <defName>CureInjuryShredded</defName>
     <label>cure shredded </label>
-    <description>Repair a shredded body part; requires regular medicine or better.</description>
+    <description>Repair a shredded body part; requires regular medicine or better and synthread.</description>
     <workerClass>Recipe_RemoveHediff</workerClass>
     <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s shredding.</successfullyRemovedHediffMessage>
     <jobString>Curing shredded.</jobString>
@@ -471,7 +471,7 @@
   <RecipeDef ParentName="SurgeryEasy">
     <defName>CureInjuryBruise</defName>
     <label>cure bruise </label>
-    <description>Cure a bruise; requires regular medicine or better.</description>
+    <description>Cure a bruise; requires regular medicine or better and synthread.</description>
     <workerClass>Recipe_RemoveHediff</workerClass>
     <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s bruise.</successfullyRemovedHediffMessage>
     <jobString>Curing bruise.</jobString>
@@ -500,7 +500,7 @@
   <RecipeDef ParentName="SurgeryEasy">
     <defName>CureInjuryFrostbite</defName>
     <label>cure frostbite </label>
-    <description>Cure a frostbitten extremity; requires regular medicine or better.</description>
+    <description>Cure a frostbitten extremity; requires regular medicine or better and synthread.</description>
     <workerClass>Recipe_RemoveHediff</workerClass>
     <successfullyRemovedHediffMessage>{0} has successfully treated {1}'s frostbite.</successfullyRemovedHediffMessage>
     <jobString>Curing frostbite.</jobString>
@@ -581,7 +581,7 @@
   <RecipeDef ParentName="SurgeryEasy">
     <defName>RepairCosmeticNose</defName>
     <label>repair nose </label>
-    <description>Replace a nose; requires regular medicine and human leather.</description>
+    <description>Replace a nose; requires regular medicine and synthread.</description>
     <workerClass>Recipe_InstallNaturalBodyPart</workerClass>
     <jobString>Repairing nose</jobString>
     <appliedOnFixedBodyParts>
