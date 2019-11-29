@@ -1,9 +1,9 @@
 <Manifest>
 
   <version>1.0.0</version>
-  <loadAfter>
+  <dependencies>
     <li>MedicalSystemExpansion</li>
-  </loadAfter>
+  </dependencies>
   <showCrossPromotions>true</showCrossPromotions>
   <manifestUri>https://raw.githubusercontent.com/DrZhivago1/DE_Surgeries_MSE/master/About/Manifest.xml</manifestUri>
   <downloadUri>https://github.com/DrZhivago1/DE_Surgeries_MSE/releases/latest</downloadUri>
