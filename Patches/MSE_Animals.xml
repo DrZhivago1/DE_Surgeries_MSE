@@ -4,7 +4,7 @@
         <success>Always</success>
         <operations>
             <li Class="PatchOperationAdd">
-                <xpath>Defs/ThingDef[@Name="AnimalThingBase"]/recipes</xpath>
+                <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/recipes</xpath>
                 <value>
                     <li>CureInjuryBurn</li>
                     <li>CureInjuryCrush</li>
